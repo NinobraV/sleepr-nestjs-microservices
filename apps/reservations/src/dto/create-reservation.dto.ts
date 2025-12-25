@@ -1,6 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Type } from 'class-transformer';
-import { IsDate, IsNotEmpty, IsString } from 'class-validator';
+import {
+  IsDate,
+  IsDefined,
+  IsNotEmpty,
+  IsNotEmptyObject,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+import { CreateChargeDto } from '@app/common';
 
 export class CreateReservationDto {
   @IsDate()
@@ -18,4 +25,11 @@ export class CreateReservationDto {
   @IsString()
   @IsNotEmpty()
   invoiceId: string;
+
+  @IsDefined()
+  @IsNotEmptyObject()
+  @ValidateNested()
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  @Type(() => CreateChargeDto)
+  charge: CreateChargeDto;
 }
