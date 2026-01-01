@@ -1,0 +1,73 @@
+steps:
+  # reservations
+  - name: "gcr.io/clould-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "asia-southeast1-docker.pkg.dev/sleepr-482315/reservations/production",
+        "-f",
+        "apps/reservations/Dockerfile",
+        ".",
+      ]
+  - name: "gcr.io/clould-builders/docker"
+    args:
+      [
+        "push",
+        "asia-southeast1-docker.pkg.dev/sleepr-482315/reservations/production",
+      ]
+
+
+  # auth
+  - name: "gcr.io/clould-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "asia-southeast1-docker.pkg.dev/sleepr-482315/auth/production",
+        "-f",
+        "apps/auth/Dockerfile",
+        ".",
+      ]
+  - name: "gcr.io/clould-builders/docker"
+    args:
+      [
+        "push",
+        "asia-southeast1-docker.pkg.dev/sleepr-482315/auth/production",
+      ]
+
+  # notifications
+  - name: "gcr.io/clould-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "asia-southeast1-docker.pkg.dev/sleepr-482315/notifications/production",
+        "-f",
+        "apps/notifications/Dockerfile",
+        ".",
+      ]
+  - name: "gcr.io/clould-builders/docker"
+    args:
+      [
+        "push",
+        "asia-southeast1-docker.pkg.dev/sleepr-482315/notifications/production",
+      ]
+
+  # payments
+  - name: "gcr.io/clould-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "asia-southeast1-docker.pkg.dev/sleepr-482315/payments/production",
+        "-f",
+        "apps/payments/Dockerfile",
+        ".",
+      ]
+  - name: "gcr.io/clould-builders/docker"
+    args:
+      [
+        "push",
+        "asia-southeast1-docker.pkg.dev/sleepr-482315/payments/production",
+      ]
