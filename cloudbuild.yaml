@@ -71,3 +71,5 @@ steps:
         "push",
         "asia-southeast1-docker.pkg.dev/sleepr-482315/payments/production",
       ]
+options:
+  logging: CLOUD_LOGGING_ONLY
