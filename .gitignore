@@ -1,12 +1,7 @@
 # compiled output
 /dist
-/node_modules
+**/node_modules
 /build
-
-/apps/auth/node_modules
-/apps/payments/node_modules
-/apps/reservations/node_modules
-/apps/notifications/node_modules
 
 # Logs
 logs
